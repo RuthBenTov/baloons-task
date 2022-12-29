@@ -4,19 +4,49 @@
 }
 
 body, html {
-  width: 100vh;
+  width: 100%;
   height: 100vh;
   background-color: rgb(192, 227, 227);
   overflow: hidden;
+  position: relative;
   background: url(https://cdn.pixabay.com/photo/2021/01/01/16/07/clouds-5879037_1280.jpg) no-repeat left bottom -70px;
 }
 
-.ballon {
-  width: 150px;
+button {
+  width: 300px;
+  height: 100px;
+  background-color: gray;
   position: absolute;
-  top: 100vh;
-  -webkit-animation: ballonRiseUp 4s linear infinite, ballonRotate 4s linear infinite;
-          animation: ballonRiseUp 4s linear infinite, ballonRotate 4s linear infinite;
+  top: 40%;
+  left: calc(50% - 150px);
+  border-radius: 400px;
+  font-size: xx-large;
+}
+button:hover {
+  cursor: pointer;
+}
+
+#balloon {
+  width: 100px;
+  position: absolute;
+  top: 100%;
+  -webkit-animation: ballonRotate 4s linear infinite;
+          animation: ballonRotate 4s linear infinite;
+}
+#balloon:hover {
+  cursor: pointer;
+}
+
+#goldenBalloon {
+  width: 100px;
+  position: absolute;
+  top: 100%;
+  -webkit-animation: ballonRotate 5s ease 5s infinite, heartBeating 1.6s linear infinite;
+          animation: ballonRotate 5s ease 5s infinite, heartBeating 1.6s linear infinite;
+  transition: all 0.2;
+}
+#goldenBalloon:hover {
+  cursor: pointer;
 }
 
 .counter {
@@ -31,29 +61,29 @@ body, html {
   height: 30px;
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-animation: heartBeating 0.8s linear infinite;
-          animation: heartBeating 0.8s linear infinite;
+  -webkit-animation: heartBeating 1.5s ease 0s infinite;
+          animation: heartBeating 1.5s ease 0s infinite;
 }
 .counter .life p {
   margin: 5px;
   font-size: 20px;
 }
 
-@-webkit-keyframes ballonRiseUp {
+@-webkit-keyframes golden {
   from {
-    top: 100vh;
+    width: 110px;
   }
   to {
-    top: -150px;
+    width: 100px;
   }
 }
 
-@keyframes ballonRiseUp {
+@keyframes golden {
   from {
-    top: 100vh;
+    width: 110px;
   }
   to {
-    top: -150px;
+    width: 100px;
   }
 }
 @-webkit-keyframes ballonRotate {
@@ -79,24 +109,22 @@ body, html {
   }
 }
 @-webkit-keyframes heartBeating {
-  0% {
+  0%, 50%, 100% {
+    transform: scale(1, 1);
     filter: opacity(1);
   }
-  30% {
-    filter: opacity(0.6);
-  }
-  100% {
-    filter: opacity(1);
+  30%, 80% {
+    transform: scale(0.92, 0.95);
+    filter: opacity(0.8);
   }
 }
 @keyframes heartBeating {
-  0% {
+  0%, 50%, 100% {
+    transform: scale(1, 1);
     filter: opacity(1);
   }
-  30% {
-    filter: opacity(0.6);
-  }
-  100% {
-    filter: opacity(1);
+  30%, 80% {
+    transform: scale(0.92, 0.95);
+    filter: opacity(0.8);
   }
 }

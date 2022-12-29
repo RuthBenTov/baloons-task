@@ -5,17 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../dist/style.css">
-    <title>ballons-game</title>
+    <title>balloons-game</title>
 </head>
 <body>
-    <div>
-        <img class="ballon" src="https://cdn-icons-png.flaticon.com/512/891/891010.png">
+    <button class="startBtn">start!</button>
+
+    <div class="audio">
+        <audio class="audioBack" loop src="../src/audio/HappyUkulele.mp3"></audio>
+        <audio class="popSound" src="../src/audio/mixkit-long-pop-2358.wav"></audio>
+        <audio class="errorSound" src="../src/audio/mixkit-electric-fence-fx-2968.wav"></audio>
+        <audio class="hundredSound" src="../src/audio/mixkit-fantasy-game-success-notification-270.wav"></audio>
     </div>
+    
+    <div>
+        <img id="balloon" class="balloons" src="https://cdn-icons-png.flaticon.com/512/891/891010.png">
+        <img id = "goldenBalloon" class="balloons" src="https://www.freepngimg.com/save/147315-golden-balloon-brown-free-transparent-image-hq/500x820">
+    </div>
+    
     <div class="counter">
         <h1 class="score">score:</h1>
         <div class="life">
             <img src="https://cdn-icons-png.flaticon.com/128/210/210545.png">
-            <p>3</p>
+            <p class="lifeLevel">3</p>
         </div>
     </div>
 

@@ -4,22 +4,50 @@
 }
 
 body, html{
-    width: 100vh;
+    width: 100%;
     height: 100vh;
     background-color: rgb(192, 227, 227);
     overflow: hidden;
+    position: relative;
     background:url(https://cdn.pixabay.com/photo/2021/01/01/16/07/clouds-5879037_1280.jpg) no-repeat left bottom -70px;
   
 }
 
-.ballon{
-    width: 150px;
+button{
+    width: 300px;
+    height: 100px;
+    background-color: gray;
     position: absolute;
-    top: 100vh;
-    animation:
-    ballonRiseUp 4s linear infinite,
-    ballonRotate 4s linear infinite;
-    
+    top: 40%;
+    left: calc(50% - 150px);
+    border-radius: 400px;
+    font-size:xx-large;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+}
+
+#balloon{
+    width: 100px;
+    position: absolute;
+    top: 100%;
+    animation: ballonRotate 4s linear infinite;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+#goldenBalloon{
+    width: 100px;
+    position: absolute;
+    top: 100%;
+    animation: ballonRotate 5s ease 5s infinite, heartBeating 1.6s linear infinite;
+    transition: all .2;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .counter{
@@ -27,14 +55,11 @@ body, html{
     .life{
         display: flex;
         height: 30px;
-        
         img{
         width: 30px;
         height: 30px;
         object-fit: cover;
-        animation: heartBeating 0.8s linear infinite;
-        
-
+        animation: heartBeating 1.5s ease 0s infinite;
         }
         p{
             margin: 5px;
@@ -42,18 +67,17 @@ body, html{
         }
     }
 }
-@keyframes ballonRiseUp{
-    from{top: 100vh;}
-    to{top: -150px;}
+
+@keyframes golden{
+    from{width: 110px;}
+    to{width: 100px;}
 }
 @keyframes ballonRotate{
     0%{transform: rotate(8deg);}
     50%{transform:rotate(-8deg);}
     100%{transform:rotate(8deg);}
 }
-@keyframes heartBeating{
-    0%{filter: opacity(1);}
-    30%{filter:opacity(0.6)}
-    100%{filter: opacity(1);}
+@keyframes heartBeating {
+    0%, 50%, 100% { transform: scale(1, 1); filter: opacity(1); }
+    30%, 80% { transform: scale(0.92, 0.95); filter: opacity(0.8); }
 }
-
