@@ -1,0 +1,98 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  background-color: #c0e3e3;
+  overflow: hidden;
+  position: relative;
+  background: url(https://cdn.pixabay.com/photo/2021/01/01/16/07/clouds-5879037_1280.jpg) no-repeat left bottom -40px;
+  background-size: cover;
+}
+
+button {
+  width: 300px;
+  height: 100px;
+  background-color: gray;
+  position: absolute;
+  top: 40%;
+  left: calc(50% - 150px);
+  border-radius: 400px;
+  font-size: xx-large;
+}
+button:hover {
+  cursor: pointer;
+}
+
+#balloon {
+  width: 100px;
+  position: absolute;
+  top: 100%;
+  animation: ballonRotate 4s linear infinite;
+}
+#balloon:hover {
+  cursor: pointer;
+}
+
+#goldenBalloon {
+  width: 100px;
+  position: absolute;
+  top: 100%;
+  animation: ballonRotate 5s ease 5s infinite, heartBeating 1.6s linear infinite;
+  transition: all 0.2;
+}
+#goldenBalloon:hover {
+  cursor: pointer;
+}
+
+.counter {
+  margin: 10px;
+}
+.counter .life {
+  display: flex;
+  height: 30px;
+}
+.counter .life img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  animation: heartBeating 1.5s ease 0s infinite;
+}
+.counter .life p {
+  margin: 5px;
+  font-size: 20px;
+}
+
+@keyframes golden {
+  from {
+    width: 110px;
+  }
+  to {
+    width: 100px;
+  }
+}
+@keyframes ballonRotate {
+  0% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+  100% {
+    transform: rotate(8deg);
+  }
+}
+@keyframes heartBeating {
+  0%, 50%, 100% {
+    transform: scale(1, 1);
+    filter: opacity(1);
+  }
+  30%, 80% {
+    transform: scale(0.92, 0.95);
+    filter: opacity(0.8);
+  }
+}
